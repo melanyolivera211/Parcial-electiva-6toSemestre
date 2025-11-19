@@ -1,6 +1,6 @@
 # Proyecto Parcial CI/CD Python
 
-Este proyecto demuestra una canalización (pipeline) de CI con Python, flake8, pytest y cobertura de código usando GitHub Actions.
+Este proyecto demuestra un pipeline de CI con Python, flake8, pytest y cobertura de código usando GitHub Actions.
 La idea es mostrar cómo automatizar el análisis estático, las pruebas y la validación de cobertura dentro de un workflow sencillo.
 
 ## Requisitos previos

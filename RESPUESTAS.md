@@ -21,11 +21,23 @@ Un 80% de cobertura es un punto intermedio razonable que obliga a probar la mayo
 **Errores de cobertura:** el reporte indica qué líneas no fueron ejecutadas. Si el porcentaje no alcanza el mínimo configurado, la etapa se marca como fallida.
 
 ## 5. Diferencia entre run fallido y exitoso
-Un run exitoso es cuando todas las etapas del pipeline terminan sin errores y GitHub marca el workflow en verde.
-En cambio, un run fallido ocurre cuando alguna etapa devuelve un error; entonces GitHub lo marca en rojo y puede detener el pipeline sin ejecutar los pasos posteriores.
+Para generar un run fallido, modifiqué una prueba a propósito para que el resultado esperado no coincidiera con la función. Al hacer push, pytest marcó el error y GitHub Actions registró el workflow en rojo.
+
+Después, volví a dejar la prueba correcta y generé un run exitoso, donde todas las etapas (linter, pruebas y cobertura) terminaron con código 0. GitHub Actions marcó ese workflow en verde. La diferencia final es que el run fallido se detiene por un error en alguna etapa, mientras que el exitoso completa todo el pipeline sin interrupciones.
 
 ## 6. Qué es act y cómo funciona
 es una herramienta que permite ejecutar workflows de GitHub Actions de manera local. Utiliza contenedores Docker para simular el entorno del runner de GitHub, lo que ayuda a probar el pipeline sin necesidad de hacer push al repositorio.
+
+## Requisitos:
+Tener Docker instalado
+
+Tener act instalado
+
+Comando para ejecutar el workflow:
+```cmd
+act -W .github/workflows/ci-quality.yml
+```
+ejecuta el workflow especificado en el archivo ci-quality.yml, permitiendo verificar que todo funcione correctamente antes de subir los cambios.
 
 ## 7. Dos métodos para detectar código generado por IA
 Comparación de estilo: se revisa si el código o el texto concuerda con el estilo habitual del autor. Cambios bruscos pueden indicar intervención de IA.
