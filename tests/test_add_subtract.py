@@ -2,7 +2,7 @@ from src.calculator import add, subtract
 
 
 def test_add_positive():
-    assert add(2, 3) == 7
+    assert add(2, 3) == 5
 
 
 def test_subtract_negative_result():
