@@ -7,4 +7,3 @@ def test_add_positive():
 
 def test_subtract_negative_result():
     assert subtract(2, 5) == -3
-
